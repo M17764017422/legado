@@ -57,6 +57,7 @@ jobs:
           echo "开始进行release构建"
           chmod +x gradlew
           ./gradlew app:assembleGoogle
+          ls -arh ${{ github.workspace }}/app/build/outputs/apk
       - name: Upload App To Artifact
         if: ${{ env.UPLOAD_ARTIFACT != 'false' }}
         uses: actions/upload-artifact@v2
