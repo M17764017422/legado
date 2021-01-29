@@ -50,13 +50,13 @@ jobs:
       - name: Apk Live Together
         run: |
           echo "设置apk共存"
-          sed "s/'.release'/'.releaseA'/" $GITHUB_WORKSPACE/app/build.gradle  -i
-          sed 's/.release/.releaseA/'     $GITHUB_WORKSPACE/app/google-services.json -i
+          #sed "s/'.release'/'.releaseA'/" $GITHUB_WORKSPACE/app/build.gradle  -i
+          #sed 's/.release/.releaseA/'     $GITHUB_WORKSPACE/app/google-services.json -i
       - name: Build With Gradle
         run: |
           echo "开始进行release构建"
           chmod +x gradlew
-          ./gradlew assembleAppRelease
+          ./gradlew app:assembleGoogle
       - name: Upload App To Artifact
         if: ${{ env.UPLOAD_ARTIFACT != 'false' }}
         uses: actions/upload-artifact@v2
