@@ -57,7 +57,7 @@ jobs:
           echo "开始进行release构建"
           chmod +x gradlew
           ./gradlew app:assembleGoogle
-      - name: 查看输出
+      - name: ls out
         run: |
           ls -Rlah $GITHUB_WORKSPACE/app/build/outputs
       - name: Upload App To Artifact
