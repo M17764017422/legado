@@ -57,9 +57,12 @@ jobs:
           echo "开始进行release构建"
           chmod +x gradlew
           ./gradlew app:assembleGoogle
+      - name: 查看输出
+        run: |
           ls -Rlah $GITHUB_WORKSPACE/app/build/outputs
       - name: Upload App To Artifact
         if: ${{ env.UPLOAD_ARTIFACT != 'false' }}
+        #run: ls -Rlah $GITHUB_WORKSPACE/app/build/outputs
         uses: actions/upload-artifact@v2
         with:
           name: legado apk
